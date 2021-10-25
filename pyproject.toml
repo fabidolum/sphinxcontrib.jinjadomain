@@ -2,7 +2,7 @@
 name = "sphinxcontrib.jinjadomain"
 version = "0.5.2-dev"
 description = "Jinja domain for jinja templates"
-authors = ["Jaka Hudoklin jakahudoklin@gmail.com"]
+authors = ["Jaka Hudoklin <jakahudoklin@gmail.com>"]
 license = "BSD"
 repository = "https://github.com/offlinehacker/sphinxcontrib.jinjadomain"
 homepage = "http://packages.python.org/sphinxcontrib-jinjadomain/"
@@ -17,6 +17,10 @@ classifiers=[
         "Topic :: Documentation",
         "Topic :: Utilities",
     ]
+
+packages = [
+	{ include = "sphinxcontrib/**/*.py"},
+]
 
 [tool.poetry.dependencies]
 python = ">=3.6.2"
