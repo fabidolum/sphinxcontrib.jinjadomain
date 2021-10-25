@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "sphinxcontrib.jinjadomain"
+version = "0.5.2-dev"
+description = "Jinja domain for jinja templates"
+authors = ["Jaka Hudoklin jakahudoklin@gmail.com"]
+license = "BSD"
+repository = "https://github.com/offlinehacker/sphinxcontrib.jinjadomain"
+homepage = "http://packages.python.org/sphinxcontrib-jinjadomain/"
+classifiers=[
+	"Development Status :: 4 - Beta",
+        "Environment :: Console",
+        "Environment :: Web Environment",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Topic :: Documentation",
+        "Topic :: Utilities",
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Sphinx = ">=1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
