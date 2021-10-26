@@ -5,3 +5,11 @@ This contrib extension, sphinxcontrib.jinjadomain, provides a Sphinx domain
 for describing jinja templates.
 
 You can find documentation on following url http://packages.python.org/sphinxcontrib-jinjadomain/
+
+
+Changes in this fork
+====================
+
+* moving to https://python-poetry.org/
+* fix a compliance issue with python3
+
