@@ -117,9 +117,12 @@ class JinjaDomain(Domain):
 
     def clear_doc(self, docname):
         for typ, routes in self.routes.items():
+            pathlist = set()
             for path, info in routes.items():
                 if info[0] == docname:
-                    del routes[path]
+                    pathlist.add(path)
+            for p in pathlist:
+                del routes[p]
 
     def get_objects(self):
         for method, routes in self.routes.items():
