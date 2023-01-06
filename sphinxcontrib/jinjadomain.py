@@ -30,7 +30,7 @@ class JinjaResource(ObjectDescription):
             "parameter",
             label="Parameters",
             names=("param", "parameter", "arg", "argument"),
-            typerolename="obj",
+#            typerolename="obj",
             typenames=("paramtype", "type"),
         )
     ]
