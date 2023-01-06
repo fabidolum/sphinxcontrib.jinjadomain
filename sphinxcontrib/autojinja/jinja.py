@@ -46,17 +46,18 @@ def parse_jinja_comment(path):
     :param path: Path to jinja template
     :type path: str
 
-    :returns: Jinja comment docstring
+    :yields: Jinja comment docstring
     :rtype: str
     """
-
-    f = open(path, "r")
-    contents = f.read()
-    res = re.match(
-        r"\{#+-?(.+?)-?#+\}", contents, flags=re.MULTILINE | re.DOTALL
-    )
-    if res:
-        return res.group(1)
+    
+    with open(path, "r") as f:
+        contents = f.read()
+        res = re.findall(
+            r"\{#+-?(.+?)-?#+\}", contents, flags=re.MULTILINE | re.DOTALL
+        )
+        if res:
+            for match in res:
+                yield match
 
     return None
 
@@ -87,13 +88,13 @@ class AutojinjaDirective(Directive):
     def make_rst(self):
         env = self.state.document.settings.env
         path = self.arguments[0]
-        docstring = parse_jinja_comment(
-            os.path.join(env.config["jinja_template_path"], path)
-        )
-        docstring = prepare_docstring(docstring)
-        if docstring is not None and env.config["jinja_template_path"]:
-            for line in jinja_directive(path, docstring):
-                yield line
+        for docstring in parse_jinja_comment(
+                os.path.join(env.config["jinja_template_path"], path)
+                ):
+            docstring = prepare_docstring(docstring)
+            if docstring is not None and env.config["jinja_template_path"]:
+                for line in jinja_directive(path, docstring):
+                    yield line
 
         yield ""
 
