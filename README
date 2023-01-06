@@ -13,3 +13,6 @@ Changes in this fork
 * moving to https://python-poetry.org/
 * fix a compliance issue with python3
 
+* enable multiple Jinja comments in the template. Each Jinja comment is 
+	transformed to a docstring.
+
