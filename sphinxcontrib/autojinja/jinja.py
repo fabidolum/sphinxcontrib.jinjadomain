@@ -53,7 +53,7 @@ def parse_jinja_comment(path):
     f = open(path, "r")
     contents = f.read()
     res = re.match(
-        r"\{\#-?(.+?)-?\#\}", contents, flags=re.MULTILINE | re.DOTALL
+        r"\{#+-?(.+?)-?#+\}", contents, flags=re.MULTILINE | re.DOTALL
     )
     if res:
         return res.group(1)
