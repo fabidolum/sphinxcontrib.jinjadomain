@@ -88,13 +88,14 @@ class AutojinjaDirective(Directive):
     def make_rst(self):
         env = self.state.document.settings.env
         path = self.arguments[0]
+        doc_docstring = []
         for docstring in parse_jinja_comment(
                 os.path.join(env.config["jinja_template_path"], path)
                 ):
-            docstring = prepare_docstring(docstring)
-            if docstring is not None and env.config["jinja_template_path"]:
-                for line in jinja_directive(path, docstring):
-                    yield line
+            doc_docstring += prepare_docstring(docstring)
+        if doc_docstring is not None and env.config["jinja_template_path"]:
+            for line in jinja_directive(path, doc_docstring):
+                yield line
 
         yield ""
 
