@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sphinxcontrib.jinjadomain"
-version = "0.5.2-dev"
+version = "0.5.2-dev3"
 description = "Jinja domain for jinja templates"
 authors = ["Jaka Hudoklin <jakahudoklin@gmail.com>"]
 license = "BSD"
